@@ -1,20 +1,26 @@
-const startGame = document.getElementById("start")
+const playGame = document.getElementById("play")
 const canvas = document.getElementById("canvas")
 
-function start(){
+function play() {
     console.log("Entramos")
-    // const objective = new Objective(40, 40)
-    let positionObjective = document.createElement("div")
-    positionObjective.setAttribute('class', 'objective')
-    canvas.appendChild(positionObjective)
-    positionObjective.addEventListener("click", hit)
+    playGame.style.display = 'none';
 
-}
-function hit() {
-    console.log('objective Hit')
+    createObjective()
 }
 
-startGame.addEventListener("click", start)
+function createObjective() {
+
+    let objectiveId = setInterval(() => {
+        let randomX = Math.floor((Math.random() * 80)+10)
+        let randomY = Math.floor((Math.random() * 80)+10)
+        console.log("Interval")
+        const objective = new Objective(randomX, randomY, canvas)
+        objective.createObjective()
+    }, 2000)
+}
+
+
+playGame.addEventListener("click", play)
 
 
 

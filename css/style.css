@@ -18,16 +18,30 @@ body{
     transform: translate(-50%, -50%);
 }
 
-#canvas button{
+#canvas footer{
     position: absolute;
     top: calc(100% - 25px);
     left: 50%;
     transform: translateX(-50%);
+}
+#canvas footer button{
     font-size: 40px;
+    position: absolute;
 }
 
+#canvas footer span{
+    display: inline-block;
+    border: 2px solid black;
+}
+
+#canvas footer p{
+    display: inline-block;
+    font-size: 40px;
+    margin: 0;
+}
 .objective {
     width:40px;
     height:40px;
     background-color: yellow;
+    position: absolute;
 }
