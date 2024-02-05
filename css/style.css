@@ -18,6 +18,18 @@ body{
     transform: translate(-50%, -50%);
 }
 
+#canvas header #timeGame{
+    /* display: none; */
+    position: absolute;
+    top: calc(0% - 25px);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    margin: 0;
+    border: 2px solid black;
+    background-color: lightgreen;
+}
+
 #canvas footer{
     position: absolute;
     top: calc(100% - 25px);
@@ -27,6 +39,10 @@ body{
 #canvas footer button{
     font-size: 40px;
     position: absolute;
+}
+
+#canvas footer button.hidden{
+    display: none;
 }
 
 #canvas footer span{
@@ -45,3 +61,41 @@ body{
     background-color: yellow;
     position: absolute;
 }
+
+.backgroundEnd{
+    /*border: 2px solid blue;*/
+    background-color:rgb(20, 65, 79);
+    opacity: 0.5;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+
+}
+
+.backgroundEnd.opened{
+    display: block;
+}
+
+#containerResult{
+    width: 400px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: lightsalmon;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 40px;
+   display: none; 
+}
+
+#containerResult.opened{
+    display: block;
+}
+
+#containerResult #restart{
+    font-size: 30px;
+}
+

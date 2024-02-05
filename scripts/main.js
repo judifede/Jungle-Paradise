@@ -1,18 +1,34 @@
 const playGame = document.getElementById("play")
 const canvas = document.getElementById("canvas")
+const timeGame = document.getElementById("timeGame")
+const backgroundEnd = document.querySelector('.backgroundEnd')
+const containerResult = document.getElementById('containerResult')
+const totalScoreText = document.getElementById("totalScore")
+let objectiveId = undefined
 
 function play() {
-    playGame.style.display = 'none'; //Hidden our play button
+    let currentTimeGame = parseInt(timeGame.innerText.slice(0, 2))
+
+    const timeGameId = setInterval(() => {
+        timeGame.innerText = currentTimeGame-- + ' s'
+        if (currentTimeGame < 0){
+            clearInterval(timeGameId)
+            clearInterval(objectiveId)
+            endGame()
+        }
+    }, 1000)
+
+    playGame.classList.add("hidden") //Hidden our play button
     createObjective()
+
 }
 
 function createObjective() {
 
     //Create the interval that create new objectives
-    let objectiveId = setInterval(() => {
+    objectiveId = setInterval(() => {
         let randomX = Math.floor((Math.random() * 80)+10)
         let randomY = Math.floor((Math.random() * 80)+10)
-        console.log("Interval")
         const objective = new Objective(randomX, randomY, canvas)
         objective.createObjective()
 
@@ -26,6 +42,20 @@ function removeObjective(objective){
     objective.removeObjective()
 }
 
+function endGame(){
+    containerResult.querySelector('p').innerText = totalScoreText.innerText
+    containerResult.querySelector('#restart').addEventListener('click', resetGame)
+    backgroundEnd.classList.add('opened')
+    containerResult.classList.add('opened')
+}
+
+function resetGame(){
+    playGame.classList.remove("hidden") //show our play button
+    totalScoreText.innerText = '0000'
+    timeGame.innerText = '2 s'
+    backgroundEnd.classList.remove('opened')
+    containerResult.classList.remove('opened')
+}
 
 playGame.addEventListener("click", play)
 
