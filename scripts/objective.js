@@ -20,16 +20,15 @@ class Objective {
         this.parent.appendChild(objective)
     }
 
+    removeObjective(){
+        if(this.parent.contains(this.sprite)) this.parent.removeChild(this.sprite)
+    }
+
     objectiveHitted() {
         this.parent.removeChild(this.sprite)
         let totalScoreNode = document.getElementById("totalScore")
-        //Obtener valor actual y guardar en una variable
         let currentScore =  parseInt(totalScoreNode.innerText);
-
-        //Sumarle 500 a esa variable
-
         currentScore += 500
-        //Actualizar en el DOM el nuevo valor
         totalScoreNode.innerText = currentScore
     }
 }
