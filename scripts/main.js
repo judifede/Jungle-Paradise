@@ -1,10 +1,17 @@
 const playGame = document.getElementById("play")
+const startGame = document.getElementById("start")
+const containerStartup = document.getElementById("startup")
 const canvas = document.getElementById("canvas")
 const timeGame = document.getElementById("timeGame")
 const backgroundEnd = document.querySelector('.backgroundEnd')
 const containerResult = document.getElementById('containerResult')
 const totalScoreText = document.getElementById("totalScore")
 let objectiveId = undefined
+
+function start(){
+    canvas.classList.add('opened')
+    containerStartup.classList.add('hidden')
+}
 
 function play() {
     let currentTimeGame = parseInt(timeGame.innerText.slice(0, 2))
@@ -31,7 +38,7 @@ function createObjective() {
         let randomY = Math.floor((Math.random() * 80)+10)
         const objective = new Objective(randomX, randomY, canvas)
         objective.createObjective()
-
+        
         //Remove objective if user doesn't kill it
         setTimeout(removeObjective, 3000, objective)
 
@@ -52,12 +59,13 @@ function endGame(){
 function resetGame(){
     playGame.classList.remove("hidden") //show our play button
     totalScoreText.innerText = '0000'
-    timeGame.innerText = '2 s'
-    backgroundEnd.classList.remove('opened')
+    timeGame.innerText = '10 s'
     containerResult.classList.remove('opened')
+    backgroundEnd.classList.remove('opened')
 }
 
 playGame.addEventListener("click", play)
+startGame.addEventListener("click", start)
 
 
 
