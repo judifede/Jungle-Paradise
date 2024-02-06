@@ -38,7 +38,8 @@ body{
     text-align: center;
 }
 
-.circle{
+
+#startup footer .circle{
     margin: 0 auto;
     width: 300px;
     height: 300px;
@@ -50,27 +51,18 @@ body{
     background-position: center;
 }
 
-
-#start {
+#startup footer #start{
+    font-size: 40px;
+    font-weight: 600;
+    z-index: 2; 
+    padding-left:10px;
     width: 100px; 
     height: 100px;  
     position:relative;
     background-color: rgba(165, 42, 42, 0);
     border: 0;
     line-height: 300px;
-    
-   
 }
-
-#startup footer #start{
-    font-size: 40px;
-    font-weight: 600;
-    z-index: 2; 
-    padding-left:10px ;
-    
-}
-
-
 
 #canvas{
     width: 800px;
@@ -107,9 +99,32 @@ body{
     left: 50%;
     transform: translateX(-50%);
 }
-#canvas footer button{
-    font-size: 40px;
-    position: absolute;
+
+#canvas footer .circlePlay{
+    margin: 0 auto;
+    width: 180px;
+    height: 180px;
+    background-image: url('../assets/play.png');
+    z-index: 2;
+    position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#canvas footer #play{
+    font-size: 32px;
+    font-weight: 600px;
+    z-index: 2;
+    padding-left:62px;
+    width: 100px; 
+    height: 100px;  
+    position:relative;
+    background-color: rgba(165, 42, 42, 0);
+    border: 0;
+    line-height: 170px;
+    
+    
 }
 
 #canvas footer button.hidden{
@@ -119,12 +134,16 @@ body{
 #canvas footer span{
     display: inline-block;
     border: 2px solid black;
+    
 }
 
 #canvas footer p{
+    margin-top: 20px;
+    position: relative;
     display: inline-block;
     font-size: 40px;
-    margin: 0;
+    background-position: center;
+    
 }
 .objective {
     width:40px;
