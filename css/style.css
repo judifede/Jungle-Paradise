@@ -1,4 +1,4 @@
-body{
+body {
     background: url("/assets/img/wallpapers/wallpaper\ default.jpeg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -7,20 +7,21 @@ body{
     margin: 0 auto;
 }
 
-button{
+button {
     cursor: pointer;
 }
 
-#startup{
+#startup {
     width: 100vw;
     height: 100vh;
     position: absolute;
 }
-#startup.hidden{
+
+#startup.hidden {
     display: none;
 }
 
-#startup header{
+#startup header {
     position: absolute;
     top: 0;
     text-align: center;
@@ -29,11 +30,11 @@ button{
     width: 100vw;
 }
 
-#startup header h1{
+#startup header h1 {
     margin: 0;
 }
 
-#startup footer{
+#startup footer {
     position: absolute;
     bottom: 10%;
     width: 100vw;
@@ -41,11 +42,11 @@ button{
 
 }
 
-#startup footer #start{
+#startup footer #start {
     font-size: 80px;
 }
 
-#canvas{
+#canvas {
     width: 800px;
     height: 600px;
     margin: 0 auto;
@@ -57,12 +58,11 @@ button{
     display: none;
 }
 
-#canvas.opened{
+#canvas.opened {
     display: block;
 }
 
-#canvas header #timeGame{
-    /* display: none; */
+#canvas header #timeGame {
     position: absolute;
     top: calc(0% - 25px);
     left: 50%;
@@ -73,41 +73,41 @@ button{
     background-color: lightgreen;
 }
 
-#canvas table{
+#canvas table {
     border: 1px solid black;
     width: 100%;
     height: 100%;
     border-collapse: collapse;
 }
 
-#canvas table td{
-    border: 2px solid yellow;
-    width: 20%;
-    height: 10px;
+#canvas table td {
+    border: 2px solid transparent;
     position: relative;
+    padding: 5px 0;
 }
 
-#canvas footer{
+#canvas footer {
     position: absolute;
     top: calc(100% - 25px);
     left: 50%;
     transform: translateX(-50%);
 }
-#canvas footer button{
+
+#canvas footer button {
     font-size: 40px;
     position: absolute;
 }
 
-#canvas footer button.hidden{
+#canvas footer button.hidden {
     display: none;
 }
 
-#canvas footer span{
+#canvas footer span {
     display: inline-block;
     border: 2px solid black;
 }
 
-#canvas footer p{
+#canvas footer p {
     display: inline-block;
     font-size: 40px;
     margin: 0;
@@ -120,41 +120,41 @@ button{
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    transform: translate(-50%, -50%);
-    animation: showObjective 1s backwards 0s 1;
+    animation: showObjective 1s both 0s 1;
 }
 
-.objective.mirror{
-    transform: rotateY(180deg) translate(0, -50%);/* rotate image mirror mode */
+.objective.mirror {
+    transform: rotateY(180deg);
+    /* rotate image mirror mode */
 }
 
-.objective.hidden{
-    animation: hiddenObjective 1s backwards 0s 1;
+.objective.hidden {
+    animation: hiddenObjective 1s both 0s 1;
 }
 
 
 @keyframes showObjective {
-    0%{
+    0% {
         scale: 0
     }
 
-    100%{
+    100% {
         scale: 1
     }
 }
 
 @keyframes hiddenObjective {
-    0%{
+    0% {
         scale: 1
     }
 
-    100%{
+    100% {
         scale: 0
     }
 }
 
-.backgroundEnd{
-    background-color:rgb(20, 65, 79);
+.backgroundEnd {
+    background-color: rgb(20, 65, 79);
     opacity: 0.5;
     position: absolute;
     width: 100vw;
@@ -163,29 +163,51 @@ button{
 
 }
 
-.backgroundEnd.opened{
+.backgroundEnd.opened {
     display: block;
 }
 
-#containerResult{
+#containerResult {
     width: 400px;
     height: 300px;
     margin: 0 auto;
-    background-color: lightsalmon;
+    background-color: midnightblue;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     font-size: 40px;
-   display: none; 
+    color: white;
+    border-radius: 10px;
+    padding-bottom: 40px;
+    display: none;
 }
 
-#containerResult.opened{
+#containerResult.opened {
     display: block;
 }
 
-#containerResult #restart{
-    font-size: 30px;
+#containerResult p {
+    animation: growUpTotalScore 1s both 0s 1;
+
 }
 
+@keyframes growUpTotalScore {
+    0% {
+        scale: 1;
+        
+    }
+
+    100% {
+        scale: 1.5;
+        color: gold;
+    }
+}
+
+#containerResult #restart {
+    font-size: 40px;
+    background-color: goldenrod;
+    border-radius: 10px;
+    padding: 10px;
+}

@@ -33,13 +33,12 @@ function play() {
 function createObjective() {
     //Create the interval that create new objectives
     objectiveId = setInterval(() => {
-        // let randomX = Math.floor((Math.random() * 80)+10)
-        // let randomY = Math.floor((Math.random() * 80)+10)
-        const objective = new Objective(50, 50, canvas)
+        let randomTimeShowed = Math.floor((Math.random() * 2000)+4000)
+        const objective = new Objective(25, 20)
         objective.createObjective()
         
         //Remove objective if user doesn't kill it
-        setTimeout(removeObjective, 4000, objective)
+        setTimeout(removeObjective, randomTimeShowed, objective)
 
     }, 2000)
 }
@@ -58,7 +57,7 @@ function endGame(){
 function resetGame(){
     playGame.classList.remove("hidden") //show our play button
     totalScoreText.innerText = '0000'
-    timeGame.innerText = '10 s'
+    timeGame.innerText = '60 s'
     containerResult.classList.remove('opened')
     backgroundEnd.classList.remove('opened')
 }

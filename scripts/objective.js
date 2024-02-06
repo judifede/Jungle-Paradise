@@ -1,24 +1,20 @@
 
 class Objective {
-    constructor(x, y, parent) {
+    constructor(x, y) {
         this.x = x
         this.y = y
-        this.parent = parent
         this.sprite
-        this.speed = 2
+        this.speed = 5
         this.direction = -1
         this.cells
         this.randomCell
         this.randomCellLeft
-        this.randomCellTop
         this.randomCellWidth
-        this.randomCellHeight
     }
 
     createObjective() {
         this.cells = document.getElementsByTagName("td")
-        this.randomCell = Math.floor((Math.random() * 16))
-
+        this.randomCell = Math.floor((Math.random() * (this.cells.length-1)))
         let objective = document.createElement("div")
         objective.setAttribute('class', 'objective')
         objective.style.top = this.y + "%"
@@ -28,6 +24,9 @@ class Objective {
             this.objectiveHitted()
         })
         this.sprite = objective
+        while(this.cells[this.randomCell].hasChildNodes()){
+            this.randomCell = Math.floor((Math.random() * (this.cells.length-1)))
+        }
         this.cells[this.randomCell].appendChild(this.sprite)
         this.moveObjective()
     }
@@ -38,12 +37,10 @@ class Objective {
             this.x += this.speed * this.direction
             this.sprite.style.left = parseInt(this.x) + "px"
             if (this.checkCollision()) {
-                console.log("AAAAA")
                 this.sprite.classList.toggle("mirror")
                 this.direction = this.direction === -1 ? 1 : -1
             }
-
-        }, 50)
+        }, 100)
 
     }
 
@@ -52,10 +49,10 @@ class Objective {
         this.randomCellLeft = parseInt(getComputedStyle(this.cells[this.randomCell]).left.replace("px", ""))
         this.spriteWidth = parseInt(getComputedStyle(this.sprite).width.replace("px", ""))
 
-        if (this.x - this.spriteWidth / 2 <= this.randomCellLeft || this.x + this.spriteWidth >= this.randomCellWidth) {
+        if (this.x <= this.randomCellLeft || this.x + this.spriteWidth >= this.randomCellWidth) {
             return true;
         }else{
-            return false
+            return false;
         }
     }
 
