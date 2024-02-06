@@ -15,15 +15,15 @@ class Objective {
     createObjective() {
         this.cells = document.getElementsByTagName("td")
         this.randomCell = Math.floor((Math.random() * (this.cells.length-1)))
-        let objective = document.createElement("div")
-        objective.setAttribute('class', 'objective')
-        objective.style.top = this.y + "%"
-        objective.style.left = this.x + "%"
+        this.sprite = document.createElement("div")
+        this.sprite.setAttribute('class', 'objective')
+        this.sprite.style.top = this.y + "%"
+        this.sprite.style.left = this.x + "%"
 
-        objective.addEventListener("click", () => {
+        this.sprite.addEventListener("click", () => {
             this.objectiveHitted()
         })
-        this.sprite = objective
+       
         while(this.cells[this.randomCell].hasChildNodes()){
             this.randomCell = Math.floor((Math.random() * (this.cells.length-1)))
         }
