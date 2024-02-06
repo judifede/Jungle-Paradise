@@ -45,7 +45,7 @@ body{
     width: 800px;
     height: 600px;
     margin: 0 auto;
-    background-image: url('/assets/img/wallpapers/_d9e94d1a-1d5c-41a5-b598-3d9aaa6771f5.jpeg.jpg');
+    background-image: url('/assets/img/wallpapers/fondo-canvas.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: absolute;
@@ -56,6 +56,13 @@ body{
     
 }
 
+
+
+#canvas:hover{
+    cursor: url('../assets/img/wallpapers/mata-moscas.png'), auto;
+}
+
+
 #canvas.opened{
     display: block;
 }
@@ -64,7 +71,7 @@ body{
     width: 600px;
     height: 500px;
     margin: 0 auto;
-    background-image: url('/assets/img/3c2049ee4aa91f114a4b074346724715-dise-o-de-rejilla-cuadrada.png');
+    background-image: url('/assets/img/rejilla.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: absolute;
