@@ -17,8 +17,8 @@ function play() {
     let currentTimeGame = parseInt(timeGame.innerText.slice(0, 2))
 
     const timeGameId = setInterval(() => {
-        timeGame.innerText = currentTimeGame-- + ' s'
-        if (currentTimeGame < 0){
+        timeGame.innerText = --currentTimeGame + ' s'
+        if (currentTimeGame <= 0){
             clearInterval(timeGameId)
             clearInterval(objectiveId)
             endGame()
@@ -31,16 +31,15 @@ function play() {
 }
 
 function createObjective() {
-
     //Create the interval that create new objectives
     objectiveId = setInterval(() => {
-        let randomX = Math.floor((Math.random() * 80)+10)
-        let randomY = Math.floor((Math.random() * 80)+10)
-        const objective = new Objective(randomX, randomY, canvas)
+        // let randomX = Math.floor((Math.random() * 80)+10)
+        // let randomY = Math.floor((Math.random() * 80)+10)
+        const objective = new Objective(50, 50, canvas)
         objective.createObjective()
         
         //Remove objective if user doesn't kill it
-        setTimeout(removeObjective, 3000, objective)
+        setTimeout(removeObjective, 4000, objective)
 
     }, 2000)
 }
