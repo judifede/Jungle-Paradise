@@ -188,3 +188,11 @@ body{
     color: white;
 }
 
+p.emergingPoint{
+   color: rgb(83, 250, 86);
+   font-size: 30px;
+   font-weight: 500;
+   background-color: rgba(194, 78, 78, 0.84);
+   border-radius: 20%;
+}
+
