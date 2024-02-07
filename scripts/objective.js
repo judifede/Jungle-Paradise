@@ -10,22 +10,21 @@ class Objective {
         this.randomCell
         this.randomCellLeft
         this.randomCellWidth
+        this.objectiveHitted = this.objectiveHitted.bind(this)
     }
 
     createObjective() {
         this.cells = document.getElementsByTagName("td")
-        this.randomCell = Math.floor((Math.random() * (this.cells.length-1)))
+        this.randomCell = Math.floor((Math.random() * (this.cells.length - 1)))
         this.sprite = document.createElement("div")
         this.sprite.setAttribute('class', 'objective')
         this.sprite.style.top = this.y + "%"
         this.sprite.style.left = this.x + "%"
 
-        this.sprite.addEventListener("click", () => {
-            this.objectiveHitted()
-        })
-       
-        while(this.cells[this.randomCell].hasChildNodes()){
-            this.randomCell = Math.floor((Math.random() * (this.cells.length-1)))
+        this.sprite.addEventListener("click", this.objectiveHitted )
+
+        while (this.cells[this.randomCell].hasChildNodes()) {
+            this.randomCell = Math.floor((Math.random() * (this.cells.length - 1)))
         }
         this.cells[this.randomCell].appendChild(this.sprite)
         this.moveObjective()
@@ -51,7 +50,7 @@ class Objective {
 
         if (this.x <= this.randomCellLeft || this.x + this.spriteWidth >= this.randomCellWidth) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -65,8 +64,15 @@ class Objective {
     }
 
     objectiveHitted() {
-        this.cells[this.randomCell].removeChild(this.sprite)
-        let totalScoreNode = document.getElementById("totalScore")
+        const totalScoreNode = document.getElementById("totalScore")
+        totalScoreNode.classList.add("growUp")
+        this.sprite.removeEventListener("click", this.objectiveHitted)
+        this.sprite.classList.add("hitted")
+        setTimeout(() => {
+            totalScoreNode.classList.remove("growUp")
+            this.cells[this.randomCell].removeChild(this.sprite)
+        }, 1000)
+
         let currentScore = parseInt(totalScoreNode.innerText);
         currentScore += 500
         totalScoreNode.innerText = currentScore

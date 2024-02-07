@@ -64,13 +64,19 @@ button {
 
 #canvas header #timeGame {
     position: absolute;
-    top: calc(0% - 25px);
+    top: calc(0% - 30px);
     left: 50%;
     transform: translateX(-50%);
     font-size: 40px;
     margin: 0;
     border: 2px solid black;
-    background-color: lightgreen;
+    background-color: lightsalmon;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#canvas header #timeGame.endingTime {
+    background-color: lightcoral;
 }
 
 #canvas table {
@@ -88,14 +94,15 @@ button {
 
 #canvas footer {
     position: absolute;
-    top: calc(100% - 25px);
+    top: calc(100% - 30px);
     left: 50%;
     transform: translateX(-50%);
 }
 
-#canvas footer button {
+#canvas footer #play {
     font-size: 40px;
     position: absolute;
+    padding: 5px;
 }
 
 #canvas footer button.hidden {
@@ -105,12 +112,17 @@ button {
 #canvas footer span {
     display: inline-block;
     border: 2px solid black;
+    padding: 5px;
 }
 
-#canvas footer p {
+#canvas footer #totalScore {
     display: inline-block;
     font-size: 40px;
     margin: 0;
+}
+
+#canvas footer #totalScore.growUp{
+    animation: growUpTotalScore 0.5s backwards 0s 1;
 }
 
 .objective {
@@ -120,7 +132,22 @@ button {
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    animation: showObjective 1s both 0s 1;
+    animation: showObjective 1s both 1;
+}
+
+.objective.hitted{
+    background-image: url("/assets/img/objectives/Mosquitos/mosquito\ mareado.png");
+    animation: objectiveHittedRotate .5s both 1 ;
+}
+
+@keyframes objectiveHittedRotate {
+    0% {
+        rotate: 0
+    }
+
+    100% {
+        rotate: 180deg
+    }
 }
 
 .objective.mirror {
@@ -190,7 +217,6 @@ button {
 
 #containerResult p {
     animation: growUpTotalScore 1s both 0s 1;
-
 }
 
 @keyframes growUpTotalScore {
