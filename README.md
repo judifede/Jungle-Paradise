@@ -2,7 +2,7 @@
 Mosquitoes attack you on vacation. Kill everyone who enters before they escape!
 
 # Move
-click mouse in the enemys
+Click mouse in the enemys.
 
 # Credits
 + Diego [Judifede](https://github.com/judifede)
