@@ -8,6 +8,7 @@ const backgroundEnd = document.querySelector('.backgroundEnd')
 const containerResult = document.getElementById('containerResult')
 const totalScoreText = document.getElementById("totalScore")
 const countdownGame = document.querySelector('.countdown')
+const countdownGameCounter = document.querySelector('.countdown p')
 let objectiveId = undefined
 const soundWallpaper = new Audio('assets/Sound/wallpaperSound.mp3')
 soundWallpaper.volume = 0.8
@@ -24,16 +25,16 @@ function start() {
 
 function play() {
     
-    let i = 0
-    const colors = ["red","yellow","blue","green"]
-    countdownGame.style.color = `${colors[i]}`
     countdownGame.classList.add("opened")
+    let i = 0
+    const colors = ["red","orange","yellow","green"]
+    countdownGameCounter.style.color = `${colors[i]}`
     
     const countdown = setInterval(()=>{
-        countdownGame.innerText = --countdownGame.innerText
+        countdownGameCounter.innerText = --countdownGameCounter.innerText
         i++
-        countdownGame.style.color = `${colors[i]}`
-        if(countdownGame.innerText === '0') countdownGame.innerText = 'GO!'
+        countdownGameCounter.style.color = `${colors[i]}`
+        if(countdownGameCounter.innerText === '0') countdownGameCounter.innerText = 'GO!'
     },1000)
 
     setTimeout(()=>{
@@ -58,9 +59,9 @@ function play() {
         createObjective()
 
         clearInterval(countdown)
-        countdownGame.classList.remove('opened')
-        countdownGame.innerText = '3'
+        countdownGameCounter.innerText = '3'
         i = 0
+        countdownGame.classList.remove('opened')
     },4000)
 
     
@@ -101,7 +102,7 @@ function endGame(){
 function resetGame() {
     playGame.classList.remove("hidden") //show our play button
     totalScoreText.innerText = '0000'
-    timeGame.innerText = '10 s'
+    timeGame.innerText = '30 s'
     timeGame.classList.remove('endingTime')
     containerResult.classList.remove('opened')
     backgroundEnd.classList.remove('opened')

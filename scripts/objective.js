@@ -10,6 +10,7 @@ class Objective {
         this.randomCellLeft
         this.randomCellWidth
         this.objectiveHitted = this.objectiveHitted.bind(this)
+        this.emergingPoint = this.emergingPoint.bind(this)
         this.score = 500
         this.point 
     }
@@ -22,10 +23,9 @@ class Objective {
         this.sprite.style.top = this.y + "%"
         this.sprite.style.left = this.x + "%"
 
-        this.sprite.addEventListener("click", (e) => {   
-            this.objectiveHitted()
-            this.emergingPoint(e)
-        })
+        this.sprite.addEventListener("click", this.objectiveHitted)
+
+        this.sprite.addEventListener("click", this.emergingPoint)
 
         while (this.cells[this.randomCell].hasChildNodes()) {
             this.randomCell = Math.floor((Math.random() * (this.cells.length - 1)))
@@ -73,15 +73,36 @@ class Objective {
         totalScoreNode.classList.add("growUp")
         this.sprite.removeEventListener("click", this.objectiveHitted)
         this.sprite.classList.add("hitted")
+        
         setTimeout(() => {
             totalScoreNode.classList.remove("growUp")
             this.cells[this.randomCell].removeChild(this.sprite)
         }, 1000)
-
+        
         let currentScore = parseInt(totalScoreNode.innerText);
         currentScore += this.score
+        totalScoreNode.innerText = currentScore
         const soundHit = new Audio('assets/Sound/hit35.mp3.flac')
         soundHit.volume = 0.4
         soundHit.play()
+    }
+
+    emergingPoint(event){
+        let x = event.clientX
+        let y = event.clientY
+        this.sprite.removeEventListener("click", this.emergingPoint)
+        this.point = document.createElement('p')
+        this.point.innerText = '+' + this.score
+        this.point.style.position = 'absolute'
+        this.point.style.left = 45 + x + 'px'
+        this.point.style.top = y-65 + 'px'
+        this.point.classList.add('emergingPoint')
+        document.querySelector('body').appendChild(this.point)
+        setTimeout(()=>{
+            document.querySelector('body').removeChild(this.point)
+    
+        },500)
+        
+    
     }
 }
