@@ -1,4 +1,3 @@
-
 class Objective {
     constructor(x, y, parent) {
         this.x = x
@@ -25,6 +24,9 @@ class Objective {
     }
 
     objectiveHitted() {
+        const soundHit = new Audio('assets/Sound/hit35.mp3.flac')
+        soundHit.volume = 0.4
+        soundHit.play()
         this.parent.removeChild(this.sprite)
         let totalScoreNode = document.getElementById("totalScore")
         let currentScore =  parseInt(totalScoreNode.innerText);

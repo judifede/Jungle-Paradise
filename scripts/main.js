@@ -7,15 +7,22 @@ const backgroundEnd = document.querySelector('.backgroundEnd')
 const containerResult = document.getElementById('containerResult')
 const totalScoreText = document.getElementById("totalScore")
 let objectiveId = undefined
+const soundWallpaper = new Audio('assets/Sound/wallpaperSound.mp3')
+soundWallpaper.volume = 0.8
+soundWallpaper.currentTime = 14
+
+
 
 function start(){
     canvas.classList.add('opened')
     containerStartup.classList.add('hidden')
-}
+
+    
+}   
 
 function play() {
     let currentTimeGame = parseInt(timeGame.innerText.slice(0, 2))
-
+    soundWallpaper.play()
     const timeGameId = setInterval(() => {
         timeGame.innerText = currentTimeGame-- + ' s'
         if (currentTimeGame < 0){
@@ -50,6 +57,8 @@ function removeObjective(objective){
 }
 
 function endGame(){
+    soundWallpaper.pause()
+    soundWallpaper.currentTime = 14
     containerResult.querySelector('p').innerText = totalScoreText.innerText
     containerResult.querySelector('#restart').addEventListener('click', resetGame)
     backgroundEnd.classList.add('opened')
