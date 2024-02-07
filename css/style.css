@@ -38,11 +38,32 @@ button {
     bottom: 10%;
     width: 100vw;
     text-align: center;
-
 }
 
-#startup footer #start {
-    font-size: 80px;
+
+#startup footer .circleStart{
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    background-image: url('../assets/img/play-button.png');
+    position: relative;
+    z-index: 2;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#startup footer #start{
+    font-size: 40px;
+    font-weight: 600;
+    z-index: 2; 
+    padding-left:10px;
+    width: 100px; 
+    height: 100px;  
+    position:relative;
+    background-color: rgba(165, 42, 42, 0);
+    border: 0;
+    line-height: 300px;
 }
 
 #canvas {
@@ -159,10 +180,45 @@ button {
     border-radius: 10px;
 }
 
+#canvas footer .circlePlay{
+    width: 100%;
+    height: 180px;
+    top: -65px;
+    background-image: url('../assets/img/play.png');
+    z-index: 2;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 #canvas footer #totalScore {
     display: inline-block;
-    font-size: 40px;
-    margin: 0;
+    margin: 0px;
+    font-size: 40px;        
+}
+
+#canvas footer #play{
+    width: 100%;
+    padding-left: 10px;
+    font-size: 32px;
+    font-weight: 600px;
+    z-index: 2;
+    position:relative;
+    background-color: rgba(165, 42, 42, 0);
+    border: 0;
+    line-height: 170px;
+    text-align: center;
+}
+
+#canvas footer .circlePlay.hidden{
+    display: none;
+}
+
+#canvas footer span{
+    display:inline-block;
+    position: absolute;
+    border: 2px solid black;
+    left: 45%;
 }
 
 #canvas footer #totalScore.growUp{

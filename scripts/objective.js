@@ -80,6 +80,8 @@ class Objective {
 
         let currentScore = parseInt(totalScoreNode.innerText);
         currentScore += this.score
-        totalScoreNode.innerText = currentScore
+        const soundHit = new Audio('assets/Sound/hit35.mp3.flac')
+        soundHit.volume = 0.4
+        soundHit.play()
     }
 }
