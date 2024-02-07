@@ -1,4 +1,4 @@
-const playGame = document.getElementById("play")
+const playGame = document.querySelector(".circlePlay")
 const startGame = document.getElementById("start")
 const containerStartup = document.getElementById("startup")
 const canvas = document.getElementById("canvas")
