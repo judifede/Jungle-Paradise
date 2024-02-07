@@ -1,5 +1,5 @@
 const playGame = document.querySelector(".circlePlay")
-const startGame = document.getElementById("start")
+const startGame = document.querySelector(".circleStart")
 const containerStartup = document.getElementById("startup")
 const canvas = document.getElementById("canvas")
 const grid = document.querySelector('.grid')
@@ -18,6 +18,7 @@ soundWallpaper.currentTime = 14
 function start() {
     canvas.classList.add('opened')
     containerStartup.classList.add('hidden')
+    countdown()
 }
 
 function countdown() {

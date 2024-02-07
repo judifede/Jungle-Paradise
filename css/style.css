@@ -7,7 +7,7 @@ body {
     margin: 0 auto;
 }
 
-button {
+button, .circleStart, .circlePlay {
     cursor: pointer;
 }
 
@@ -182,9 +182,11 @@ button {
 }
 
 #canvas footer .circlePlay{
-    width: 100%;
+    width: 180px;
     height: 180px;
     top: -65px;
+    left: 50%;
+    transform: translateX(-50%);
     background-image: url('/assets/img/play.png');
     z-index: 2;
     position: absolute;
@@ -294,7 +296,6 @@ button {
     width: 100vw;
     height: 100vh;
     display: none;
-
 }
 
 .backgroundEnd.opened {
