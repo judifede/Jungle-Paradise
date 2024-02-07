@@ -1,5 +1,5 @@
 body {
-    background: url("/assets/img/wallpapers/wallpaper\ default.jpeg");
+    background: url("./../assets/img/wallpapers/wallpaper\ default.jpeg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 100vw;
@@ -26,7 +26,7 @@ button, .circleStart, .circlePlay {
     top: 0;
     left: 50%;
     transform: translate(-50%);
-    background: url("/assets/img/logo.png");
+    background: url("./../assets/img/logo.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     width: 500px;
@@ -45,7 +45,7 @@ button, .circleStart, .circlePlay {
     margin: 0 auto;
     width: 300px;
     height: 300px;
-    background-image: url('../assets/img/start.png');
+    background-image: url('./../assets/img/start.png');
     position: relative;
     z-index: 2;
     background-size: contain;
@@ -70,7 +70,7 @@ button, .circleStart, .circlePlay {
     width: 800px;
     height: 600px;
     margin: 0 auto;
-    background-image: url('/assets/img/wallpapers/fondo-canvas.jpg');
+    background-image: url('./../assets/img/wallpapers/fondo-canvas.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: absolute;
@@ -82,7 +82,7 @@ button, .circleStart, .circlePlay {
 }
 
 #canvas:hover{
-    cursor: url('../assets/img/wallpapers/mata-moscas.png'), auto;
+    cursor: url('./../assets/img/wallpapers/mata-moscas.png'), auto;
 }
 
 
@@ -94,7 +94,7 @@ button, .circleStart, .circlePlay {
     width: 530px;
     height: 500px;
     margin: 0 auto;
-    background-image: url('/assets/img/rejilla.png');
+    background-image: url('./../assets/img/rejilla.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: absolute;
@@ -187,7 +187,7 @@ button, .circleStart, .circlePlay {
     top: -65px;
     left: 50%;
     transform: translateX(-50%);
-    background-image: url('/assets/img/play.png');
+    background-image: url('./../assets/img/play.png');
     z-index: 2;
     position: absolute;
     background-size: contain;
@@ -237,7 +237,7 @@ button, .circleStart, .circlePlay {
 .objective {
     width: 80px;
     height: 80px;
-    background-image: url("/assets/img/objectives/Mosquitos/mosquito.png");
+    background-image: url("./../assets/img/objectives/Mosquitos/mosquito.png");
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -245,7 +245,7 @@ button, .circleStart, .circlePlay {
 }
 
 .objective.hitted{
-    background-image: url("/assets/img/objectives/Mosquitos/mosquito\ mareado.png");
+    background-image: url("./../assets/img/objectives/Mosquitos/mosquito\ mareado.png");
     animation: objectiveHittedRotate .5s both 1 ;
 }
 
