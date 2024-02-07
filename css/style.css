@@ -33,14 +33,6 @@ button {
     height: 500px;
 }
 
-<<<<<<< HEAD
-#startup header h1 {
-    margin: 0;
-}
-=======
-
->>>>>>> developA
-
 #startup footer {
     position: absolute;
     bottom: 10%;
@@ -93,7 +85,6 @@ button {
 }
 
 #canvas header #timeGame{
-    /* display: none; */
     position: absolute;
     top: calc(0% - 30px);
     left: 50%;
