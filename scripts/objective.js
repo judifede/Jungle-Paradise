@@ -1,4 +1,3 @@
-
 class Objective {
     constructor(x, y) {
         this.x = x
@@ -11,6 +10,8 @@ class Objective {
         this.randomCellLeft
         this.randomCellWidth
         this.objectiveHitted = this.objectiveHitted.bind(this)
+        this.score = 500
+        this.point 
     }
 
     createObjective() {
@@ -21,7 +22,10 @@ class Objective {
         this.sprite.style.top = this.y + "%"
         this.sprite.style.left = this.x + "%"
 
-        this.sprite.addEventListener("click", this.objectiveHitted )
+        this.sprite.addEventListener("click", (e) => {   
+            this.objectiveHitted()
+            this.emergingPoint(e)
+        })
 
         while (this.cells[this.randomCell].hasChildNodes()) {
             this.randomCell = Math.floor((Math.random() * (this.cells.length - 1)))
@@ -75,7 +79,7 @@ class Objective {
         }, 1000)
 
         let currentScore = parseInt(totalScoreNode.innerText);
-        currentScore += 500
+        currentScore += this.score
         totalScoreNode.innerText = currentScore
     }
 }

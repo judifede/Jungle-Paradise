@@ -2,10 +2,12 @@ const playGame = document.getElementById("play")
 const startGame = document.getElementById("start")
 const containerStartup = document.getElementById("startup")
 const canvas = document.getElementById("canvas")
+const grid = document.querySelector('.grid')
 const timeGame = document.getElementById("timeGame")
 const backgroundEnd = document.querySelector('.backgroundEnd')
 const containerResult = document.getElementById('containerResult')
 const totalScoreText = document.getElementById("totalScore")
+const countdownGame = document.querySelector('.countdown')
 let objectiveId = undefined
 
 function start() {
@@ -14,24 +16,46 @@ function start() {
 }
 
 function play() {
-    let currentTimeGame = parseInt(timeGame.innerText.slice(0, 2))
+    
+    let i = 0
+    const colors = ["red","yellow","blue","green"]
+    countdownGame.style.color = `${colors[i]}`
+    countdownGame.classList.add("opened")
+    
+    const countdown = setInterval(()=>{
+        countdownGame.innerText = --countdownGame.innerText
+        i++
+        countdownGame.style.color = `${colors[i]}`
+        if(countdownGame.innerText === '0') countdownGame.innerText = 'GO!'
+    },1000)
 
-    const timeGameId = setInterval(() => {
-        timeGame.innerText = --currentTimeGame + ' s'
+    setTimeout(()=>{
+        let currentTimeGame = parseInt(timeGame.innerText.slice(0, 2))
+        
+        const timeGameId = setInterval(() => {
+            timeGame.innerText = --currentTimeGame + ' s'
 
-        if (currentTimeGame <= 5) {
-            timeGame.classList.add('endingTime')
-        }
+            if (currentTimeGame <= 5) {
+                timeGame.classList.add('endingTime')
+            }
+            
+            if (currentTimeGame <= 0){
+                clearInterval(timeGameId)
+                clearInterval(objectiveId)
+                endGame()
+            }
+        }, 1000)
 
-        if (currentTimeGame <= 0) {
-            clearInterval(timeGameId)
-            clearInterval(objectiveId)
-            endGame()
-        }
-    }, 1000)
+        playGame.classList.add("hidden") //Hidden our play button
+        createObjective()
 
-    playGame.classList.add("hidden") //Hidden our play button
-    createObjective()
+        clearInterval(countdown)
+        countdownGame.classList.remove('opened')
+        countdownGame.innerText = '3'
+        i = 0
+    },4000)
+
+    
 
 }
 

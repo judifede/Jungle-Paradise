@@ -24,15 +24,22 @@ button {
 #startup header {
     position: absolute;
     top: 0;
-    text-align: center;
-    font-size: 80px;
-    background-color: rgb(250, 140, 96);
-    width: 100vw;
+    left: 50%;
+    transform: translate(-50%);
+    background: url("/assets/img/logo.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 500px;
+    height: 500px;
 }
 
+<<<<<<< HEAD
 #startup header h1 {
     margin: 0;
 }
+=======
+
+>>>>>>> developA
 
 #startup footer {
     position: absolute;
@@ -50,19 +57,43 @@ button {
     width: 800px;
     height: 600px;
     margin: 0 auto;
-    background-color: lightcoral;
+    background-image: url('/assets/img/wallpapers/fondo-canvas.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
+    
 }
 
-#canvas.opened {
+#canvas:hover{
+    cursor: url('../assets/img/wallpapers/mata-moscas.png'), auto;
+}
+
+
+#canvas.opened{
     display: block;
 }
 
-#canvas header #timeGame {
+.grid{
+    width: 600px;
+    height: 500px;
+    margin: 0 auto;
+    background-image: url('/assets/img/rejilla.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    
+}
+
+#canvas header #timeGame{
+    /* display: none; */
     position: absolute;
     top: calc(0% - 30px);
     left: 50%;
@@ -259,3 +290,31 @@ button {
     border-radius: 10px;
     padding: 10px;
 }
+.countdown{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: none;
+   
+}
+
+.countdown.opened{
+     z-index: 1000;
+    display: block;
+    background-color: black;
+    opacity: 0.6;
+    font-size: 450px;
+    text-align: center;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    color: white;
+}
+
+p.emergingPoint{
+   color: rgb(83, 250, 86);
+   font-size: 30px;
+   font-weight: 500;
+   background-color: rgba(194, 78, 78, 0.84);
+   border-radius: 20%;
+}
+
