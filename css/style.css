@@ -373,7 +373,6 @@ p.emergingPoint{
    font-size: 30px;
    font-weight: 900;
    backdrop-filter: blur(300px);
-   /* background-color: rgba(194, 78, 78, 0.84); */
    border-radius: 20%;
 }
 
