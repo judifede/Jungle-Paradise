@@ -73,10 +73,26 @@ button {
     background-color: lightsalmon;
     padding: 5px;
     border-radius: 10px;
+    z-index: 200;
 }
 
 #canvas header #timeGame.endingTime {
     background-color: lightcoral;
+    animation: timeEnding 1s both 5;
+}
+
+@keyframes timeEnding {
+    0% {
+        background-color: red;
+    }
+
+    50% {
+        background-color: lightcoral;
+    }
+
+    100% {
+        background-color: red;
+    }
 }
 
 #canvas table {
@@ -90,6 +106,11 @@ button {
     border: 2px solid transparent;
     position: relative;
     padding: 5px 0;
+}
+
+#canvas table td.showed {
+    outline: 1px solid lightgoldenrodyellow;
+    border-radius: 10px;
 }
 
 #canvas footer {
@@ -113,6 +134,7 @@ button {
     display: inline-block;
     border: 2px solid black;
     padding: 5px;
+    border-radius: 10px;
 }
 
 #canvas footer #totalScore {

@@ -26,6 +26,8 @@ class Objective {
         while (this.cells[this.randomCell].hasChildNodes()) {
             this.randomCell = Math.floor((Math.random() * (this.cells.length - 1)))
         }
+        this.cells[this.randomCell].classList.add('showed')
+        setTimeout(() => this.cells[this.randomCell].classList.remove('showed'), 1000)
         this.cells[this.randomCell].appendChild(this.sprite)
         this.moveObjective()
     }
@@ -40,7 +42,6 @@ class Objective {
                 this.direction = this.direction === -1 ? 1 : -1
             }
         }, 100)
-
     }
 
     checkCollision() {
