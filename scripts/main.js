@@ -67,15 +67,16 @@ function play() {
 
 function createObjective() {
     //Create the interval that create new objectives
+    let timeSpawn = Math.floor(Math.random() * 500 ) + 1000
     objectiveId = setInterval(() => {
-        let randomTimeShowed = Math.floor((Math.random() * 2000) + 4000)
+        let randomTimeShowed = Math.floor((Math.random() * 2000) + 3000)
         const objective = new Objective(25, 20)
         objective.createObjective()
 
         //Remove objective if user doesn't kill it
         setTimeout(removeObjective, randomTimeShowed, objective)
 
-    }, 2000)
+    },timeSpawn)
 }
 
 function removeObjective(objective) {
