@@ -10,7 +10,7 @@ const totalScoreText = document.getElementById("totalScore")
 const countdownGame = document.querySelector('.countdown')
 const countdownGameCounter = document.querySelector('.countdown p')
 let objectiveId = undefined
-const soundWallpaper = new Audio('assets/Sound/wallpaperSound.mp3')
+const soundWallpaper = new Audio('assets/sounds/wallpaperSound.mp3')
 soundWallpaper.volume = 0.8
 soundWallpaper.currentTime = 14
 

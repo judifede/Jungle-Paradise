@@ -9,23 +9,32 @@ class Objective {
         this.randomCell
         this.randomCellLeft
         this.randomCellWidth
+        this.randomObjective
         this.objectiveHitted = this.objectiveHitted.bind(this)
         this.emergingPoint = this.emergingPoint.bind(this)
         this.score = 500
-        this.point 
+        this.fortress = 1
+        this.clicked = "click"
+        this.point
     }
 
     createObjective() {
         this.cells = document.getElementsByTagName("td")
         this.randomCell = Math.floor((Math.random() * (this.cells.length - 1)))
+        this.randomObjective = Math.floor((Math.random() * (10)))
         this.sprite = document.createElement("div")
         this.sprite.setAttribute('class', 'objective')
         this.sprite.style.top = this.y + "%"
         this.sprite.style.left = this.x + "%"
 
-        this.sprite.addEventListener("click", this.objectiveHitted)
+        if (this.randomObjective >= 7) {
+            this.sprite.classList.add("boss")
+            this.fortress = 2
+            this.clicked = "dblclick"
+        }
 
-        this.sprite.addEventListener("click", this.emergingPoint)
+        this.sprite.addEventListener(this.clicked, this.objectiveHitted)
+        this.sprite.addEventListener(this.clicked, this.emergingPoint)
 
         while (this.cells[this.randomCell].hasChildNodes()) {
             this.randomCell = Math.floor((Math.random() * (this.cells.length - 1)))
@@ -61,7 +70,7 @@ class Objective {
     }
 
     removeObjective() {
-        
+
         if (this.cells[this.randomCell].contains(this.sprite)) {
             this.sprite.removeEventListener("click", this.objectiveHitted)
             this.sprite.removeEventListener("click", this.emergingPoint)
@@ -74,38 +83,37 @@ class Objective {
     objectiveHitted() {
         const totalScoreNode = document.getElementById("totalScore")
         totalScoreNode.classList.add("growUp")
-        this.sprite.removeEventListener("click", this.objectiveHitted)
+        this.sprite.removeEventListener(this.clicked, this.objectiveHitted)
         this.sprite.classList.add("hitted")
-        
+
         setTimeout(() => {
             totalScoreNode.classList.remove("growUp")
             this.cells[this.randomCell].removeChild(this.sprite)
         }, 1000)
-        
+
         let currentScore = parseInt(totalScoreNode.innerText);
-        currentScore += this.score
+        currentScore += this.score * this.fortress
         totalScoreNode.innerText = currentScore
-        const soundHit = new Audio('assets/Sound/hit35.mp3.flac')
+        const soundHit = new Audio('assets/sounds/hit35.mp3.flac')
         soundHit.volume = 0.4
         soundHit.play()
     }
 
-    emergingPoint(event){
+    emergingPoint(event) {
         let x = event.clientX
         let y = event.clientY
-        this.sprite.removeEventListener("click", this.emergingPoint)
+        this.sprite.removeEventListener(this.clicked, this.emergingPoint)
         this.point = document.createElement('p')
-        this.point.innerText = '+' + this.score
+        this.point.innerText = '+' + this.score * this.fortress
         this.point.style.position = 'absolute'
         this.point.style.left = 45 + x + 'px'
-        this.point.style.top = y-65 + 'px'
+        this.point.style.top = y - 65 + 'px'
         this.point.classList.add('emergingPoint')
         document.querySelector('body').appendChild(this.point)
-        setTimeout(()=>{
+        setTimeout(() => {
             document.querySelector('body').removeChild(this.point)
-    
-        },500)
-        
-    
+
+        }, 500)
+
     }
 }
