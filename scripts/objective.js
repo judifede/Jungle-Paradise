@@ -53,7 +53,7 @@ class Objective {
         this.randomCellLeft = parseInt(getComputedStyle(this.cells[this.randomCell]).left.replace("px", ""))
         this.spriteWidth = parseInt(getComputedStyle(this.sprite).width.replace("px", ""))
 
-        if (this.x <= this.randomCellLeft || this.x + this.spriteWidth >= this.randomCellWidth) {
+        if ((this.x <= this.randomCellLeft || this.x + this.spriteWidth >= this.randomCellWidth) && !this.sprite.classList.contains("hidden")) {
             return true;
         } else {
             return false;
