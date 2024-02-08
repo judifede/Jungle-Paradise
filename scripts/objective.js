@@ -72,11 +72,15 @@ class Objective {
     removeObjective() {
 
         if (this.cells[this.randomCell].contains(this.sprite)) {
-            this.sprite.removeEventListener("click", this.objectiveHitted)
-            this.sprite.removeEventListener("click", this.emergingPoint)
+            this.sprite.removeEventListener(this.clicked, this.objectiveHitted)
+            this.sprite.removeEventListener(this.clicked, this.emergingPoint)
             clearInterval(this.movementId)
             this.sprite.classList.add("hidden")
-            setTimeout(() => this.cells[this.randomCell].removeChild(this.sprite), 1000)
+            setTimeout(() => {
+                if (this.cells[this.randomCell].contains(this.sprite)) {
+                    this.cells[this.randomCell].removeChild(this.sprite)
+                }
+            }, 1000)
         }
     }
 
