@@ -184,7 +184,7 @@ button, .circleStart, .circlePlay {
 #canvas footer .circlePlay{
     width: 180px;
     height: 180px;
-    top: -65px;
+    top: -40px;
     left: 50%;
     transform: translateX(-50%);
     background-image: url('./../assets/img/play.png');
