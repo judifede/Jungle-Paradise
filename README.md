@@ -1,4 +1,4 @@
-# The-Jungle-Paradise
+# Jungle-Paradise
 Mosquitoes attack you on vacation. Kill everyone who enters before they escape!
 
 # Move
